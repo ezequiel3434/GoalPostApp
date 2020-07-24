@@ -370,6 +370,9 @@
                                             <constraint firstAttribute="width" secondItem="Bgw-FA-sK8" secondAttribute="height" multiplier="35:32" id="mFp-Mu-N5p"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backBtnAction:" destination="cai-k1-brZ" eventType="touchUpInside" id="5gz-at-vFd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.42745098040000001" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
