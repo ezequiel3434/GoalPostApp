@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		372329DA24CA69E7008DCF0B /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372329D924CA69E7008DCF0B /* GoalType.swift */; };
 		372329DC24CA7717008DCF0B /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372329DB24CA7717008DCF0B /* CreateGoalViewController.swift */; };
+		372329DE24CA7C89008DCF0B /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372329DD24CA7C89008DCF0B /* UIViewControllerExt.swift */; };
 		376939D424CA52C1004F2E9C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376939D324CA52C1004F2E9C /* GoalTableViewCell.swift */; };
 		37BE75E824CA173600079853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE75E724CA173600079853 /* AppDelegate.swift */; };
 		37BE75EA24CA173600079853 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE75E924CA173600079853 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		372329D924CA69E7008DCF0B /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		372329DB24CA7717008DCF0B /* CreateGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
+		372329DD24CA7C89008DCF0B /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		376939D324CA52C1004F2E9C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		37BE75E424CA173600079853 /* GoalPostApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalPostApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BE75E724CA173600079853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		37BE760124CA17BA00079853 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				372329DD24CA7C89008DCF0B /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				37BE75EC24CA173600079853 /* GoalsVC.swift in Sources */,
 				372329DC24CA7717008DCF0B /* CreateGoalViewController.swift in Sources */,
+				372329DE24CA7C89008DCF0B /* UIViewControllerExt.swift in Sources */,
 				37BE75E824CA173600079853 /* AppDelegate.swift in Sources */,
 				372329DA24CA69E7008DCF0B /* GoalType.swift in Sources */,
 				37BE75F224CA173600079853 /* GoalPostApp.xcdatamodeld in Sources */,
