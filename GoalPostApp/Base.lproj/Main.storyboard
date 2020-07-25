@@ -186,28 +186,63 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzF-Ub-PHQ">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1I-0M-LGh">
+                                        <rect key="frame" x="16" y="8" width="283" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZS-IB-Q4f">
+                                        <rect key="frame" x="299" y="8" width="60" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="0MZ-to-qrB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="UNDO">
+                                            <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="undoBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="10I-z0-0Bb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.8475820422" green="0.29805779459999998" blue="0.10926658660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZeD-M3-Vpw"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="RzF-Ub-PHQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7ht-BH-euE"/>
                             <constraint firstItem="Nbc-Qq-210" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JSg-LV-fW1"/>
                             <constraint firstItem="UYb-ij-9Nx" firstAttribute="top" secondItem="Nbc-Qq-210" secondAttribute="bottom" constant="55" id="Lub-dr-8J2"/>
                             <constraint firstItem="Nbc-Qq-210" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MRF-jW-QYS"/>
-                            <constraint firstItem="qAm-8e-gSO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OSy-nd-N3H"/>
                             <constraint firstItem="UYb-ij-9Nx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QEa-zp-2t6"/>
+                            <constraint firstItem="RzF-Ub-PHQ" firstAttribute="bottom" secondItem="qAm-8e-gSO" secondAttribute="bottom" id="YVP-vq-vHw"/>
                             <constraint firstItem="qAm-8e-gSO" firstAttribute="top" secondItem="Nbc-Qq-210" secondAttribute="bottom" id="chl-qu-NoT"/>
                             <constraint firstItem="qAm-8e-gSO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eRh-hf-bP5"/>
+                            <constraint firstItem="RzF-Ub-PHQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hRF-sd-Q4U"/>
                             <constraint firstItem="qAm-8e-gSO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hr6-KD-vx0"/>
+                            <constraint firstItem="RzF-Ub-PHQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kbP-el-YeX"/>
                             <constraint firstItem="Nbc-Qq-210" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yqD-ZG-Msz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="qAm-8e-gSO" id="pIx-2u-HFu"/>
+                        <outlet property="undoStackView" destination="RzF-Ub-PHQ" id="RAd-sn-bA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-108" y="18"/>
+            <point key="canvasLocation" x="-108" y="17.541229385307346"/>
         </scene>
         <!--Create GoalVC-->
         <scene sceneID="AYM-rd-unM">

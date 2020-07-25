@@ -14,8 +14,14 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 class GoalsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoStackView: UIStackView!
+    
+    var goalToRemove = Goal()
+    var indexToRemove = IndexPath()
+    
     
     var goals: [Goal] = []
+    var remove = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,9 @@ class GoalsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
+        undoStackView.isHidden = true
+        
+       
         
     }
     
@@ -54,9 +63,46 @@ class GoalsVC: UIViewController {
         presentDetail(createGoalVC)
     }
     
+    //Undo btn action
+    
+    @IBAction func undoBtnAction(_ sender: Any) {
+          // create the alert
+              let alert = UIAlertController(title: "UNDO", message: "Would you like to undo?", preferredStyle: UIAlertController.Style.alert)
+
+              // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                  
+            
+            self.undoStackView.isHidden = true
+                      print("keep")
+            self.goals.insert(self.goalToRemove, at: self.indexToRemove.row)
+            self.fetchCoreDataObjects()
+            self.tableView.reloadData()
+                
+                  
+              }))
+        
+              alert.addAction(UIAlertAction(title: "Delete permanently", style: .destructive, handler: { action in
+                self.undoStackView.isHidden = true
+                      print("Delete")
+                
+                self.removeGoal(atIndexPath: self.indexToRemove)
+                self.fetchCoreDataObjects()
+
+                  
+              }))
+
+              // show the alert
+              self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+   
 }
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource{
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -92,8 +138,15 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            self.removeGoal(atIndexPath: indexPath)
-            self.fetchCoreDataObjects()
+            self.undoSVConfigured()
+            self.undoStackView.isHidden = false
+            self.goalToRemove = self.goals[indexPath.row]
+            self.indexToRemove = indexPath
+            self.goals.remove(at: indexPath.row)
+            
+            
+            
+           
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -109,6 +162,26 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource{
                 
         return [deleteAction, addAction]
         
+    }
+    
+    
+    func undoSVConfigured() {
+         let backgroundView = UIView()
+               backgroundView.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        backgroundView.accessibilityIdentifier = "undoBar"
+               backgroundView.translatesAutoresizingMaskIntoConstraints = false
+
+               // put background view as the most background subviews of stack view
+               undoStackView.insertSubview(backgroundView, at: 0)
+               
+               
+               // pin the background view edge to the stack view edge
+               NSLayoutConstraint.activate([
+                   backgroundView.leadingAnchor.constraint(equalTo: undoStackView.leadingAnchor),
+                   backgroundView.trailingAnchor.constraint(equalTo: undoStackView.trailingAnchor),
+                   backgroundView.topAnchor.constraint(equalTo: undoStackView.topAnchor),
+                   backgroundView.bottomAnchor.constraint(equalTo: undoStackView.bottomAnchor)
+               ])
     }
     
     
@@ -129,7 +202,7 @@ extension GoalsVC {
         
          do {
                   try managedContext.save()
-                  print("Saccessfully remove goal!")
+                  print("Saccessfully setted goal!")
               } catch {
                   debugPrint("Could not set progress: \(error.localizedDescription)")
               }
@@ -138,7 +211,7 @@ extension GoalsVC {
     
     func removeGoal(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-        managedContext.delete(goals[indexPath.row])
+        managedContext.delete(self.goalToRemove)
         
         do {
             try managedContext.save()
@@ -168,4 +241,7 @@ extension GoalsVC {
         
         
     }
+    
+    
+    
 }
