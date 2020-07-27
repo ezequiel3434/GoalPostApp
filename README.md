@@ -1,5 +1,5 @@
 # GoalPostApp
-
+App to record short or long-term goals and keep track of them until they are completed
 
 <img src="images/Simulator Screen Shot - iPhone SE (2nd generation) - 2020-07-25 at 20.30.07.png" width="250">
 ***************
