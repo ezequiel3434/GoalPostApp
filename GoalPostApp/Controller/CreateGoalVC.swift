@@ -56,7 +56,7 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         goalTextView.text = ""
-        goalTextView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        goalTextView.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
   
